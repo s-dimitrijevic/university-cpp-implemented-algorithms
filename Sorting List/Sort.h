@@ -1,0 +1,16 @@
+//
+// Created by dimit on 4.7.2026..
+//
+
+#ifndef UNIVERSITY_CPP_IMPLEMENTED_ALGORITHMS_SORT_H
+#define UNIVERSITY_CPP_IMPLEMENTED_ALGORITHMS_SORT_H
+
+
+class Sort
+{
+public:
+    void sort();
+};
+
+
+#endif //UNIVERSITY_CPP_IMPLEMENTED_ALGORITHMS_SORT_H
