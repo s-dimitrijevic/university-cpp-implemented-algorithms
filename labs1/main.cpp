@@ -60,5 +60,37 @@ int main()
     std::cout << "Crveno svetlo: " << crveno_svetlo << std::endl;
     std::cout << "Zeleno svetlo: " << zeleno_svetlo << std::endl;
 
+    char value = 65;
+    std::cout << "value " << value << "\n";
+
+    auto var1{ 12 };
+    auto var2{ 13.0 };
+    auto var3{ 'e' };
+    auto var4{ 14.0f };
+    auto var5{ 15.0l };
+    auto var6{ 123u }; //unsigned
+    auto var7{ 123ul }; //unsigned long
+    auto var8{ 123ll }; //long long
+
+
+    std::cout << "var1 zauzima: " << sizeof(var1) << std::endl;
+    std::cout << "var2 zauzima: " << sizeof(var2) << std::endl;
+    std::cout << "var3 zauzima: " << sizeof(var3) << std::endl;
+    std::cout << "var4 zauzima: " << sizeof(var4) << std::endl;
+    std::cout << "var5 zauzima: " << sizeof(var5) << std::endl;
+    std::cout << "var6 zauzima: " << sizeof(var6) << std::endl;
+    std::cout << "var7 zauzima: " << sizeof(var7) << std::endl;
+    std::cout << "var8 zauzima: " << sizeof(var8) << std::endl;
+
+    int x;
+
+    std::cout << "x: " << x << std::endl;
+    std::cin >> x;
+    std::cout << "Vrednost za X je: " << x << std::endl;
+
+    for (int i = 0; i < 10; i++){
+        std::cout << i << std::endl;
+    }
+
     return 0;
 }
