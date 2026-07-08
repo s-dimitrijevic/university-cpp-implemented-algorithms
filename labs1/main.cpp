@@ -92,5 +92,52 @@ int main()
         std::cout << i << std::endl;
     }
 
+    //stanje racuna
+    //podizanje gotovine
+    //uplata sredstava
+
+    std::cout << "Program za podizanje novca" << std::endl;
+
+    int stanjeRacuna = 100000;
+    bool izlaz = false;
+    int opcija;
+    int iznos;
+
+    while (izlaz == false)
+    {
+        std::cout << "Molimo odaberite opciju: \n1.Podizanje gotovine\n2.Stanje racuna\n3.Uplata na racun\n4.Izlaz" << std::endl;
+        std::cin >> opcija;
+
+        switch (opcija)
+        {
+        case 1:{
+                std::cout << "Unesite iznos koji zelite da podignete: " << std::endl;
+                std::cin >> iznos;
+                stanjeRacuna  -= iznos;
+                break;
+        }
+        case 2:{
+                std::cout << "Stanje na racunu: " << stanjeRacuna << std::endl;
+                break;
+        }
+        case 3:{
+                std::cout << "Unesite iznos koji zelite da uplatite: " << std::endl;
+                std::cin >> iznos;
+                stanjeRacuna += iznos;
+                break;
+        }
+        case 4:{
+                izlaz = true;
+                break;
+            }
+
+        default:
+            {
+                break;
+            }
+
+        }
+    }
+
     return 0;
 }
