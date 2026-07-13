@@ -139,5 +139,83 @@ int main()
         }
     }
 
+    int scores [10];
+
+    for (std::size_t i {0}; i < 10; ++i) {
+        std::cout << "scores [" << i << "] : " << scores[i] << "\n";
+    }
+
+    scores[0] = 20;
+    scores[1] = 21;
+    scores[2] = 22;
+
+    std::cout << "\n";
+
+    for (std::size_t i {0}; i < 10; ++i) {
+        std::cout << "scores [" << i << "] : " << scores[i] << "\n";
+    }
+
+    double clanovi [5] {12,7, 11.3, 14.5};
+
+    for (std::size_t i {0}; i < 5; ++i) {
+        std::cout << "clanovi [" << i << "] : " << clanovi[i] << "\n";
+    }
+
+    for (auto i : clanovi) {
+        std::cout  << i << "\n";
+    }
+
+    srand(time(0));
+    int random_num = rand();
+
+    std::cout << "random_num: " << random_num << "\n";
+
+    int random_num2=rand();
+
+    for (size_t i {0}; i < 20; ++i) {
+        std::cout << random_num2 << "\n";
+    }
+
+    int red, kolona, a[10][10], b[10][10], sum[10][10];
+
+    std::cout << "Unesite broj redova i kolona" << std::endl;
+    std::cin >> red >> kolona;
+
+    std::cout << "Unesite elemente matrice 1" << std::endl;
+
+    for (int i = 0; i < red; ++i) {
+        for (int j = 0; j < kolona; ++j) {
+            std::cout << "Unesite elemente matrice " << i << " " << j << std::endl;
+            std::cin >> a[i][j];
+        }
+    }
+
+    std::cout << "Unesite elemente matrice 2" << std::endl;
+
+    for (int i = 0; i < red; ++i) {
+        for (int j = 0; j < kolona; ++j) {
+            std::cout << "Unesite elemente matrice " << i << " " << j << std::endl;
+            std::cin >> b[i][j];
+        }
+    }
+
+    std::cout << "Sabiranje Matrice A i B..." << std::endl;
+
+    for (int i = 0; i < red; ++i) {
+        for (int j = 0; j < kolona; ++j) {
+            std::cout << "Sabiranje elemenata matrice " << i << " " << j << std::endl;
+            sum[i][j] = a[i][j] + b[i][j];
+        }
+    }
+
+    std::cout << "Prikaz sume: " << std::endl;
+
+    for (int i = 0; i < red; ++i) {
+        for (int j = 0; j < kolona; ++j) {
+            std::cout << "Element: " << i << " " << j << std::endl;
+            std::cout << sum[i][j];
+        }
+    }
+
     return 0;
 }
