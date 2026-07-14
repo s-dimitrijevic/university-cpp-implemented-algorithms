@@ -3,6 +3,9 @@
 //
 
 #include "main.h"
+
+#include <bitset>
+#include <iomanip>
 #include <iostream>
 
 int main()
@@ -216,6 +219,133 @@ int main()
             std::cout << sum[i][j];
         }
     }
+
+    unsigned short int value01{ 0xff0u };
+
+    std::cout << "Size of short int " << sizeof(value01) << std::endl;
+    std::cout << "Value: " << std::bitset<16>(value01) << ", dec: " << value01 << std::endl;
+
+    //shift left by one bit
+    value01 = static_cast <unsigned short int>(value01 << 1);
+    std::cout << "Value: " << std::bitset<16>(value01) << ", dec: " << value01 << std::endl;
+
+
+    int COLUMN_WIDTH{20};
+    unsigned char value02{0x3};//0000 0011
+    unsigned char value03{0x5};//0000 0101
+
+    std::cout << std::setw(COLUMN_WIDTH) << "value02: " << std::setw(COLUMN_WIDTH) << std::bitset<8>(value02) << ", dec: " << value02 << std::endl;
+
+    // AND
+    std::cout << "\n";
+    std::cout << std::setw(COLUMN_WIDTH) << "value1 & value2 : " << std::setw(COLUMN_WIDTH) << std::bitset<8> (value01 & value02) << "\n";
+    std::cout << "\n";
+
+    // OR
+    std::cout << "\n";
+    std::cout << std::setw(COLUMN_WIDTH) << "value1 | value2 : " << std::setw(COLUMN_WIDTH) << std::bitset<8> (value01 | value02) << "\n";
+    std::cout << "\n";
+
+    // NOT
+    std::cout << "\n";
+    std::cout << std::setw(COLUMN_WIDTH) << "~value1 : " << std::setw(COLUMN_WIDTH) << std::bitset<8> (~value01) << "\n";
+    std::cout << "\n";
+
+    // XOR
+    std::cout << "\n";
+    std::cout << std::setw(COLUMN_WIDTH) << "value1 XOR value2 : " << std::setw(COLUMN_WIDTH) << std::bitset<8> (value01^value02) << "\n";
+    std::cout << "\n";
+
+    // TYPEDEF
+
+    typedef int eur;
+    typedef int usd;
+
+    eur euroKupovni = 117;
+    eur euroProdajni = 118;
+
+    usd usdKupovni = 100;
+    usd usdProdajni = 101;
+
+    int option;
+    int secondOption;
+    int amount;
+
+    do {
+
+        std::cout << "*** GLAVNI MENI ***" << std::endl;
+        std::cout << "1. Kupovina" << std::endl;
+        std::cout << "2. Prodaja" << std::endl;
+        std::cout << "3. Kraj Rada" << std::endl;
+
+        std::cin >> option;
+        system("cls");
+
+        switch (option) {
+            case 1: {
+
+                std::cout << "Odaberite valutu za KUPOVINU: " << std::endl;
+                std::cout << "1. EUR" << std::endl;
+                std::cout << "2. USD" << std::endl;
+                std::cin >> secondOption;
+
+                std::cout << "Unesite iznos za kupovinu: ";
+                std::cin >> amount;
+
+                switch (secondOption) {
+                    case 1: {
+                        //case EUR
+                        std::cout << "Cena kupovine "<< amount << " EUR iznosi: " << amount*euroKupovni << " RSD." << std::endl;
+                        break;
+                    }
+                    case 2: {
+                        //case USD
+                        std::cout << "Cena kupovine "<< amount << " USD iznosi: " << amount*usdKupovni << " RSD." << std::endl;
+                        break;
+                    }
+                    default: {
+                        break;
+                    }
+                }
+                break;
+            }
+            case 2: {
+                std::cout << "Odaberite valutu za PRODAJU: " << std::endl;
+                std::cout << "1. EUR" << std::endl;
+                std::cout << "2. USD" << std::endl;
+                std::cin >> secondOption;
+
+                std::cout << "Unesite iznos za kupovinu: ";
+                std::cin >> amount;
+
+                switch (secondOption) {
+                    case 1: {
+                        //case EUR
+                        std::cout << "Cena prodaje "<< amount << " EUR iznosi: " << amount*euroProdajni << " RSD." << std::endl;
+                        break;
+                    }
+                    case 2: {
+                        //case USD
+                        std::cout << "Cena prodaje "<< amount << " USD iznosi: " << amount*euroProdajni << " RSD." << std::endl;
+                        break;
+                    }
+                    default: {
+                        break;
+                    }
+                }
+                break;
+            }
+            case 3: {
+                option=0;
+                std::cout << "Hvala na poseti. Prijatan dan!" << std::endl;
+                break;
+            }
+            default: {
+                break;
+            }
+        }
+
+    } while (option != 0);
 
     return 0;
 }
