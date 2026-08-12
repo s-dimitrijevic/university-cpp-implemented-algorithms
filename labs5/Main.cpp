@@ -4,6 +4,7 @@
 
 #include "Main.h"
 #include <iostream>
+#include <span>
 
 int main()
 {
@@ -76,23 +77,71 @@ int main()
     //
     // std::cout << "&[0]scores: " << &scores[0] << std::endl;
     //
-    const size_t size {10};
-    // double* p_salaries{new double[size]};//niz se alocira ali na garbage vrednosti
+    // const size_t size {10};
+    // // double* p_salaries{new double[size]};//niz se alocira ali na garbage vrednosti
+    //
+    // //initializing 0-filled array & half-filled array
+    // int* p_students{new (std::nothrow) int[size] {} };
+    // int* p_scores{new (std::nothrow) int[size] {1,2,3,4} };
+    //
+    // if (p_scores){
+    //     std::cout << "Size of scores: " << sizeof(p_scores) << std::endl;
+    // }
+    //
+    // for (size_t i = 0; i < size; ++i){
+    //     std::cout << "Vrednost: " << p_scores[i] << " : " << *(p_scores+i) << std::endl;
+    // }
+    //
+    // //deleting items
+    // delete[] p_scores;
+    // delete[] p_students;
+    //
+    // int scores[10] {1,2,3,4,5,6,7,8,9,10};
+    // for (auto i : scores)
+    // {
+    //     std::cout << i << std::endl;
+    // }
+    //
+    // int* p_scores1 = new int[10] {1,2,3,4,5,6,7,8,9,10};//heap memorija
+    // std::span<int, 10> scores_view(p_scores1, 10);
+    //
+    // for (int score : scores_view)
+    // {
+    //     std::cout << score << std::endl;
+    // }
 
-    //initializing 0-filled array & half-filled array
-    int* p_students{new (std::nothrow) int[size] {} };
-    int* p_scores{new (std::nothrow) int[size] {1,2,3,4} };
+    std::cout << "Unesite zeljenu duzinu nizu: " << std::endl;
+    int duzinaNiza;
+    std::cin >> duzinaNiza;
 
-    if (p_scores){
-        std::cout << "Size of scores: " << sizeof(p_scores) << std::endl;
+    int noviNiz[duzinaNiza];
+    for (int i = 0; i < duzinaNiza; i++){
+        std::cout << "Unesite clan niza " << i + 1 << ": " << std::endl;
+        int clanNiza;
+        std::cin >> clanNiza;
+
+        do{
+            if (clanNiza % 3 == 0)
+                break;
+
+            std::cout << "Broj mora biti deljiv sa 3!";
+            std::cout << "Unesite clan niza  " << i + 1 << " ponovo: " << std::endl;
+            std::cin >> clanNiza;
+
+        } while (clanNiza % 3 != 0);
+
+        std::cout << "Clan dodat u niz!" << std::endl;
+        noviNiz[i] = clanNiza;
     }
 
-    for (size_t i = 0; i < size; ++i){
-        std::cout << "Vrednost: " << p_scores[i] << " : " << *(p_scores+i) << std::endl;
+    std::cout << "Niz: " << std::endl;
+    int counter = 0;
+
+    for (int clan : noviNiz)
+    {
+        //code
     }
 
-    //deleting items
-    delete[] p_scores;
-    delete[] p_students;
+
     return 0;
 }
