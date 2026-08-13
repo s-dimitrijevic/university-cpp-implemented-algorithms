@@ -111,12 +111,15 @@ int main()
     // }
 
     std::cout << "Unesite zeljenu duzinu nizu: " << std::endl;
+
     int duzinaNiza;
     std::cin >> duzinaNiza;
-
     int noviNiz[duzinaNiza];
+
     for (int i = 0; i < duzinaNiza; i++){
-        std::cout << "Unesite clan niza " << i + 1 << ": " << std::endl;
+
+        std::cout << "\nUnesite " << i + 1 << " clan niza" <<": " << std::endl;
+
         int clanNiza;
         std::cin >> clanNiza;
 
@@ -125,21 +128,34 @@ int main()
                 break;
 
             std::cout << "Broj mora biti deljiv sa 3!";
-            std::cout << "Unesite clan niza  " << i + 1 << " ponovo: " << std::endl;
+            std::cout << "\nUnesite " << i + 1 << "clan niza ponovo: " << std::endl;
             std::cin >> clanNiza;
 
         } while (clanNiza % 3 != 0);
 
-        std::cout << "Clan dodat u niz!" << std::endl;
+        std::cout << "Broj " << clanNiza << " dodat u niz!" << std::endl;
         noviNiz[i] = clanNiza;
     }
 
     std::cout << "Niz: " << std::endl;
-    int counter = 0;
+    int counter3s = 0;
+    int counter4s = 0;
 
-    for (int clan : noviNiz)
-    {
-        //code
+    //Treba mi ispis svakog treceg + Adresa svakog cetvrtog
+    for (int clan : noviNiz){
+
+        if (counter3s == 3){
+            std::cout << "Clan (svaki treci) : " << clan << std::endl;
+            counter3s = 0;
+        }
+
+        if (counter4s == 4){
+            std::cout << "Clan (svaki cevrti) - adresa : " << &clan << std::endl;
+            counter4s = 0;
+        }
+
+        counter3s++;
+        counter4s++;
     }
 
 
