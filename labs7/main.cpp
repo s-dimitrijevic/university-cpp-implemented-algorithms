@@ -4,11 +4,21 @@
 
 #include "main.h"
 #include <iostream>
+#include <list>
 #include <stack>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 using namespace std;
+
+void printLista(list<int>nasaLista) {
+
+    while (!nasaLista.empty()) {
+        cout << nasaLista.front() << endl;
+        nasaLista.pop_front();
+    }
+}
 
 /*
 {
@@ -127,39 +137,64 @@ int main() {
     // //STL - tempalte klasa i funkcija, podela na: iteratore, algoritme, kontejnere
 
     //vector<type>name;
-    vector<int> someVector(3);
-    vector<int> nasVektor(3);
+    // vector<int> someVector(3);
+    // vector<int> nasVektor(3);
+    //
+    // nasVektor[0] = 5;
+    // nasVektor[1] = 10;
+    // nasVektor[2] = 20;
+    //
+    // cout << "Poslednji element vektora je " << nasVektor[nasVektor.size()-1] << endl;
+    //
+    //
+    // vector<string> stringVektor;
+    //
+    // stringVektor.push_back("Rec 1");
+    // stringVektor.push_back("Rec 2");
+    // stringVektor.push_back("Rec 3");
+    // stringVektor.push_back("Rec 4");
+    //
+    // for (auto sv : stringVektor) {
+    //     cout << sv << " " << endl;
+    // }
+    //
+    // stack<int> someStack;
+    //
+    // someStack.push(5);
+    // someStack.push(10);
+    // someStack.push(20);
+    // someStack.push(30);
+    // someStack.push(40);
+    //
+    // cout << "Kapacitet steka je: " << someStack.size() << endl;
+    // cout << "Vrh steka je: " << someStack.top() << endl;
 
-    nasVektor[0] = 5;
-    nasVektor[1] = 10;
-    nasVektor[2] = 20;
+    list<int> nasaLista;
 
-    cout << "Poslednji element vektora je " << nasVektor[nasVektor.size()-1] << endl;
+    nasaLista.push_back(5);
+    nasaLista.push_front(15);
 
+    nasaLista.push_back(51);
+    nasaLista.push_front(125);
 
-    vector<string> stringVektor;
+    nasaLista.push_back(53);
+    nasaLista.push_front(115);
 
-    stringVektor.push_back("Rec 1");
-    stringVektor.push_back("Rec 2");
-    stringVektor.push_back("Rec 3");
-    stringVektor.push_back("Rec 4");
+    nasaLista.push_back(545);
+    nasaLista.push_front(125);
 
-    for (auto sv : stringVektor) {
-        cout << sv << " " << endl;
-    }
+    printLista(nasaLista);
 
-    stack<int> someStack;
+    int a[] = {10,20,4,5,3,11,15,22,34,56};
+    int n = sizeof(a) / sizeof(a[0]);
 
-    someStack.push(5);
-    someStack.push(10);
-    someStack.push(20);
-    someStack.push(30);
-    someStack.push(40);
+    cout << "Duzina niza je " << n << endl;
+    //sizeof(a) gives total bytes of the whole array (10 elements × 4 bytes = 40). sizeof(a[0]) gives bytes of one element (4). Division = element count (10).
 
-    cout << "Kapacitet steka je: " << someStack.size() << endl;
-    cout << "Vrh steka je: " << someStack.top() << endl;
+    vector<int> nekiVektor(a, a+n);
 
-    
+    for (auto nv : nekiVektor)
+        cout << nv << endl;
 
     return 0;
 }
