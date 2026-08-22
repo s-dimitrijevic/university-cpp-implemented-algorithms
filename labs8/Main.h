@@ -1,5 +1,5 @@
 //
-// Created by d-sava on 15. 7. 2026..
+// Created by d-sava on 23. 8. 2026..
 //
 
 #ifndef UNIVERSITY_CPP_IMPLEMENTED_ALGORITHMS_MAIN_H
