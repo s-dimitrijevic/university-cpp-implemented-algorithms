@@ -107,6 +107,17 @@ public:
     Auto(){broj+=1;}
 };
 
+class Primer {
+
+    int x;
+
+public:
+    void setX(int x){this -> x = x;}
+    int getX(){return x;}
+
+};
+
+
 int Auto :: broj = 0;
 
 void testFunkcija(int* p);
@@ -174,6 +185,14 @@ int main(){
 
     cout << "Vrednost za a: " << a << endl;
     cout << "Vrednost za b: " << b << endl;
+
+    Primer obj1;
+    Primer* pObj1;
+    pObj1 = &obj1;
+
+    obj1.setX(10);
+
+    cout << pObj1->getX() << endl; // pristup pomocu pokazivaca
 
     return 0;
 }
