@@ -50,7 +50,34 @@ int main() {
     });
 
     cout << "Polozeni ispiti: " << polozeni << endl;
-    //27:21
+
+    replace_if(grades.begin(), grades.end(),
+        [](int g) {return g < 5; },5);
+
+    cout << "Nakon replace if " << "\n";
+
+    for (int x : grades)
+        cout << x << " ";
+
+    vector<int> numbers = {1,2,3,4,5,6,7,8};
+    vector<int> evenNumbers;
+
+    copy_if(numbers.begin(), numbers.end(), back_inserter(evenNumbers),
+        [](int x) {return x % 2 == 0;});
+
+    cout << "Even numbers: " << endl;
+    for (int x : evenNumbers)
+        cout << x << endl;
+
+    partition(
+        numbers.begin(), numbers.end(), [](int x) {return x % 2 == 0;}
+        );
+
+    vector <int> x = {9,2,7,1,5,8,4};
+    nth_element(x.begin(), x.begin() + 3, x.end());
+
+    for (int e : x)
+        cout << e << endl;
 
     return 0;
 }
