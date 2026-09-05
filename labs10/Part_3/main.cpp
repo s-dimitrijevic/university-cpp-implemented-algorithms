@@ -48,17 +48,49 @@ public:
     }
 
     friend ostream& operator << (ostream& out, const SkladisnaJedinica& j) {
-
+        j.stampajStrukturu();
+        return out;
     }
+
+    virtual ~SkladisnaJedinica() {
+
+        for (auto s : sadrzaj)
+            delete s;
+    }
+};
+
+class Fajl : public SkladisnaJedinica {
+
+private:
+    long velicina;
+
+public:
+    Fajl(string naziv, long velicina) : SkladisnaJedinica(naziv), velicina(velicina)
+
+    long getVelicina() const override{ return velicina; }
+    void stampajStrukturu(int dubina = 0) const override {
+        cout << string(dubina * 2, ' ') << "[F]" << getNaziv() << " (" << getVelicina() << "byts)" << endl;
+    }
+
 
 };
 
-int main() {
+class Direktorijum : public SkladisnaJedinica {
 
+public:
+    using SkladisnaJedinica::SkladisnaJedinica;
+
+
+    long getVelicina() const override{ return }
+};
+
+int main() {
 
     //getVelicina
     //stampajStrukturu
     //File
     //Exceptions
     //19:08 (vezbe10cas3)
+
+
 }
